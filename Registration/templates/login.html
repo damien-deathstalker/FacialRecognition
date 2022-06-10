@@ -1,0 +1,87 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/css2.css">
+    <link rel="stylesheet" href="./css/mdb.dark.min.css">
+    <link rel="stylesheet" href="./css/custom.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <h3>Visitor Registration</h3>
+            &nbsp;
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" aria-current="page" href="#">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Recognition</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container my-5 center" style="margin-bottom: 0px!important;">
+        <h4 class="alert alert-primary"><b>Login</b></h4>
+        <p>Please provide Username and Password to Login to use the system</p>
+        <div class="row">
+            <div class="col-md-4 mb-4"></div>
+            <div class="col-md-4 mb-4">
+                <form action="POST" id="loginForm">
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="username" required class="form-control" autocomplete="off" minlength="4" style="
+                        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                        background-repeat: no-repeat;
+                        background-attachment: scroll;
+                        background-size: 16px 18px;
+                        background-position: 98% 50%;
+                      " />
+                        <label class="form-label" for="username" style="margin-left: 0px">Username</label>
+                        <div class="form-notch">
+                            <div class="form-notch-leading" style="width: 9px"></div>
+                            <div class="form-notch-middle" style="width: 88.8px"></div>
+                            <div class="form-notch-trailing"></div>
+                        </div>
+                    </div>
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="password" required class="form-control" autocomplete="off" minlength="4" style="
+                        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                        background-repeat: no-repeat;
+                        background-attachment: scroll;
+                        background-size: 16px 18px;
+                        background-position: 98% 50%;
+                      " />
+                        <label class="form-label" for="password" style="margin-left: 0px">Password</label>
+                        <div class="form-notch">
+                            <div class="form-notch-leading" style="width: 9px"></div>
+                            <div class="form-notch-middle" style="width: 64px"></div>
+                            <div class="form-notch-trailing"></div>
+                        </div>
+                    </div>
+                    <!-- Submit button -->
+                    
+                </form>
+                <input class="btn btn-success" type="button" value="Register" id="submitBtn"
+                                    name="submitBtn" onclick="custom_submit()">
+            </div>
+            <div class="col-md-4 mb-4"></div>
+
+        </div>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/sweetalert2.js"></script>
+    <script src="./js/face-api.js"></script>
+    <script src="./js/mdb.min.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+
+</html>

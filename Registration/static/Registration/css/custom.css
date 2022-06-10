@@ -1,0 +1,41 @@
+.center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: red;
+}
+
+#videoCapture {
+    /* display: none !important; */
+    margin: 0px;
+    padding: 0px;
+    transform: scaleX(-1);
+}
+
+#videoContainer {
+    position: relative;
+    border: 5px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    margin: 5px;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(-1);
+    margin: 0px;
+    padding: 0px;
+}
+
+.faceResults{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8rem;
+    font-style: italic;
+}

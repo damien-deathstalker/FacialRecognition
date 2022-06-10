@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Registration{% endblock title %}
+{% block container %}
+<div class="row">
+    <div id="visitor_details" class="col-md-6 mb-4">
+        <h4 class="center">Please fill out the form with the Visitor's details</h4>
+        <p class="center">Time: <b id="clock"></b></p>
+        <form action="POST" id="registrationForm" name="registrationForm" url="{% url 'register_submit' %}" recognizeurl="{% url 'recognize_face' %}">
+            {% csrf_token %}
+            <small id="v_name_error" class="hidden error"></small>
+            <div class="form-outline mb-4">
+                <input class="form-control" type="text" name="v_name" id="v_name" aria-required="true" required
+                    style="
+                        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                        background-repeat: no-repeat;
+                        background-attachment: scroll;
+                        background-size: 16px 18px;
+                        background-position: 98% 50%;" minlength="4">
+                <label class="form-label" for="v_name">Name:</label>
+            </div>
+            <small id="v_tel_error" class="hidden error"></small>
+            <div class="form-outline mb-4">
+                <input class="form-control" type="tel" name="v_tel" id="v_tel" aria-required="true"
+                    minlength="10" onkeypress="return onlyNumberKey(event)" required style="
+                    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                    background-repeat: no-repeat;
+                    background-attachment: scroll;
+                    background-size: 16px 18px;
+                    background-position: 98% 50%;
+                    ">
+                <label class="form-label" for="v_tel">Telephone Number(s):</label>
+            </div>
+            <small id="v_person_to_see_error" class="hidden error"></small>
+            <div class="form-outline mb-4">
+                <input class="form-control" type="text" name="v_person_to_see" id="v_person_to_see"
+                    aria-required="true" required style="
+                    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-size: 16px 18px;
+                background-position: 98% 50%;
+                    ">
+                <label class="form-label" for="v_person_to_see">
+                    Name of Personnel visitor is coming to see:
+                </label>
+            </div>
+            <small id="v_purpose_error" class="hidden error"></small>
+            <div class="form-outline mb-4">
+                <label class="form-label" for="v_purpose">Purpose of Visit:</label>
+                <select name="v_purpose" id="v_purpose" aria-required="true" required
+                    validationMessage="Please select a purpose for the visit">
+                    <option value="" selected></option>
+                    <option value="personal">Personal</option>
+                    <option value="business">Business</option>
+                </select>
+            </div>
+            <div class="form-outline mb-4 center">
+                <small>Please ensure facial features are captured before submitting the form.</small>
+            </div>
+            <div class="form-outline mb-4 center">
+                <div class="row">
+                    <div class="form-outline mb-4 center">
+                        <input class="btn btn-success" type="button" value="Register" id="submitBtn"
+                            name="submitBtn" onclick="custom_submit()">
+                    </div>
+                </div>
+                <div id="awaitingResponse" class="hidden">
+                    <span class="spinner-border spinner-border-sm text-primary" role="status"
+                        aria-hidden="true"></span>
+                    &nbsp; Processing data... Please wait.
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="facial_capture" class="col-md-6 mb-4 center">
+        <h4>Capture Visitor's Facial Features</h4>
+        <div class="row" id="videoContainer">
+            <video id="videoCapture" onplaying="_autoplay(this)" autoplay>
+            </video>
+            <canvas id="overlay"></canvas>
+        </div>
+        <div id="awatingCamera" class="hidden">
+            <span class="spinner-border spinner-border-sm text-primary" role="status" aria-hidden="true"></span>
+            &nbsp; Turning Camera on. Please wait...
+        </div>
+        <p>
+            <small>
+                Please let the visitor turn his face slightly to the left, right,
+                up and down to capture all his/her features.
+            </small>
+        </p>
+        <p>
+            <small id="saveNotification">&nbsp;</small>
+        </p>
+        <input type="button" class="btn btn-primary" value="Start Capture" id="captureBtn" name="captureBtn"
+            onclick="toggle_capture()">
+        <input type="button" class="btn btn-success hidden" value="Save Facial Feature" id="saveBtn" disabled
+            name="saveBtn" onclick="save_facial_feature()">
+
+    </div>
+</div>
+{% endblock container %}
+{% block customjs %}
+<script src="{% static 'Registration/js/register.js' %}"></script>
+{% endblock customjs %}
